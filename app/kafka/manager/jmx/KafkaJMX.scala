@@ -25,11 +25,11 @@ import scala.util.{Failure, Try}
 object KafkaJMX extends Logging {
   
   private[this] val defaultJmxConnectorProperties = Map[String, Any] (
-    "jmx.remote.x.request.waiting.timeout" -> "3000",
-    "jmx.remote.x.notification.fetch.timeout" -> "3000",
-    "sun.rmi.transport.connectionTimeout" -> "3000",
-    "sun.rmi.transport.tcp.handshakeTimeout" -> "3000",
-    "sun.rmi.transport.tcp.responseTimeout" -> "3000"
+    "jmx.remote.x.request.waiting.timeout" -> "30000",
+    "jmx.remote.x.notification.fetch.timeout" -> "30000",
+    "sun.rmi.transport.connectionTimeout" -> "30000",
+    "sun.rmi.transport.tcp.handshakeTimeout" -> "30000",
+    "sun.rmi.transport.tcp.responseTimeout" -> "30000"
   )
 
   def doWithConnection[T](jmxHost: String, jmxPort: Int, jmxUser: Option[String], jmxPass: Option[String], jmxSsl: Boolean)(fn: MBeanServerConnection => T) : Try[T] = {
